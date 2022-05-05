@@ -1,0 +1,2 @@
+INSERT INTO movie(name, genre, urlstream) VALUES ('El padrino', 'Policial', 'Netflix.com'),
+("Perros de la calle", "Policial", "Netflix.com"), ("Hijos del hombre", "Ciencia ficcion", "AmazonPrime.com");
