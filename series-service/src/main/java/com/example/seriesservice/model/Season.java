@@ -2,10 +2,7 @@ package com.example.seriesservice.model;
 
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -17,5 +14,8 @@ public class Season {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private Integer seasonNumber;
+
+    @OneToMany()
+    @JoinColumn(name = "id")
     private List<Chapter> chapterList;
 }
