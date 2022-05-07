@@ -1,11 +1,13 @@
 package com.example.seriesservice.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "series")
+@Data
 public class Serie {
 
     @Id
@@ -13,4 +15,10 @@ public class Serie {
     private Integer id;
     private String name;
     private String genre;
+
+    @OneToMany(mappedBy = "serie")
+    @JsonIgnore
+    private List<Season> seasons;
+
+
 }

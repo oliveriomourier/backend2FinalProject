@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "capitulos")
 public class Chapter {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,6 +17,6 @@ public class Chapter {
     private String urlstream;
 
     @ManyToOne
-    @JoinColumn(name = "season_id", insertable = false, updatable = false)
+    @JoinColumn(name = "season_id")
     private Season season;
 }

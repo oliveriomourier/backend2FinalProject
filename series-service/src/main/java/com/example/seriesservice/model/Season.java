@@ -8,7 +8,6 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "temporadas")
 public class Season {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,4 +16,8 @@ public class Season {
 
     @OneToMany(mappedBy = "season")
     private List<Chapter> chapters;
+
+    @ManyToOne
+    @JoinColumn(name = "serie_id")
+    private Serie serie;
 }

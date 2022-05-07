@@ -6,17 +6,16 @@ spring:
     username: root
     password: 1234
     driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      mode: always
+      dataLocations: classpath:/serie.sql
 
   jpa:
-    generate-ddl: true
     defer-datasource-initialization: true
     hibernate:
       ddl-auto: create-drop
     show-sql: true
-    database-platform=org:
-      hibernate:
-        dialect:
-          MySQL5InnoDBDialect:
 
 server:
   port: 8082
