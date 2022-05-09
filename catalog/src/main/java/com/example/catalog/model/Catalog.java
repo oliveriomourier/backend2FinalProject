@@ -17,6 +17,8 @@ public class Catalog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    private String genre;
     private List<MovieDTO> movies;
     private List<SerieDTO> series;
 }

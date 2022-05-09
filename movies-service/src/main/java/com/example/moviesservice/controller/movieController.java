@@ -31,7 +31,11 @@ public class movieController {
     }
 
     @GetMapping("/findByGenre/{genre}")
-    public List<Movie> findByGenre(@PathVariable String genre){
+    public List<Movie> findByGenre(@PathVariable String genre,
+                                   @RequestParam (defaultValue = "false") Boolean throwError){
+        if(throwError){
+            throw new RuntimeException();
+        }
         return movieService.findMovieByGenre(genre);
     }
 
