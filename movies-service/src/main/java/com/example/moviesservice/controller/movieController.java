@@ -30,6 +30,11 @@ public class movieController {
         return movieService.findAllMovies();
     }
 
+    @GetMapping("/findByGenre/{genre}")
+    public List<Movie> findByGenre(@PathVariable String genre){
+        return movieService.findMovieByGenre(genre);
+    }
+
     @PostMapping("/save")
     public ResponseEntity<String> saveMovie(@RequestBody Movie movie){
         if (movie.getName() == null || movie.getName().isEmpty()){

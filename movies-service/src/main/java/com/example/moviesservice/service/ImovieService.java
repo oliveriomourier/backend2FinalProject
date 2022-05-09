@@ -9,4 +9,5 @@ public interface ImovieService {
     Optional<Movie> findMovieById(Integer id);
     List<Movie> findAllMovies();
     void saveMovie(Movie movie);
+    List<Movie> findMovieByGenre(String genre);
 }

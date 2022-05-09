@@ -26,7 +26,14 @@ public class movieService implements ImovieService {
     public List<Movie> findAllMovies(){
         return movieRepository.findAll();
     }
+
+    @Override
     public void saveMovie(Movie movie){
         movieRepository.save(movie);
+    }
+
+    @Override
+    public List<Movie> findMovieByGenre(String genre){
+        return movieRepository.findByGenre(genre);
     }
 }
