@@ -31,6 +31,15 @@ public class serieController {
         return serieService.findAll();
     }
 
+    @GetMapping("/genero/{genre}")
+    public List<Serie> findSerieByGenre(@PathVariable String genre){
+        Boolean throwError = true;
+        if(throwError){
+            throw new RuntimeException();
+        }
+        return serieService.findSerieByGenre(genre);
+    }
+
     @PostMapping("/save")
     public ResponseEntity<String> saveSerie(@RequestBody Serie serie){
         if (serie.getName() == null || serie.getName().isEmpty()){

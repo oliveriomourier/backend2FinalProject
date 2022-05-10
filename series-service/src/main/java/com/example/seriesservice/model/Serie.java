@@ -19,6 +19,4 @@ public class Serie {
     @OneToMany(mappedBy = "serie")
     @JsonIgnore
     private List<Season> seasons;
-
-
 }

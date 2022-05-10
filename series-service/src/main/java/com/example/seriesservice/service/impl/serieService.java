@@ -32,4 +32,9 @@ public class serieService implements ISerieservice {
     public void saveSerie(Serie serie){
         serieRepository.save(serie);
     }
+
+    @Override
+    public List<Serie> findSerieByGenre(String genre){
+        return serieRepository.findSerieByGenre(genre);
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.seriesservice.service;
 
+import com.example.seriesservice.model.Season;
 import com.example.seriesservice.model.Serie;
 
 import java.util.List;
@@ -9,4 +10,5 @@ public interface ISerieservice {
     Optional<Serie> findSerieById(Integer id);
     List<Serie> findAll();
     void saveSerie(Serie serie);
+    List<Serie> findSerieByGenre(String genre);
 }

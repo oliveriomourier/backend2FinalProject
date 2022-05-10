@@ -2,7 +2,7 @@ package com.example.catalog.service.impl;
 
 import com.example.catalog.model.Catalog;
 import com.example.catalog.model.MovieDTO;
-import com.example.catalog.repository.feign.movieRepository;
+import com.example.catalog.model.SerieDTO;
 import com.example.catalog.service.IcatalogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,19 +11,24 @@ import java.util.List;
 
 @Service
 public class catalogService implements IcatalogService {
-    movieRepository movieRepository;
+    private movieService movieService;
+    private serieService serieService;
 
     @Autowired
-    public catalogService(movieRepository movieRepository) {
-        this.movieRepository = movieRepository;
+    public catalogService(movieService movieService, serieService serieService) {
+        this.movieService = movieService;
+        this.serieService = serieService;
     }
 
     @Override
-    public Catalog findByGenre(String genre){
-        List<MovieDTO> movies = movieRepository.findByGenre(genre);
+    public Catalog findCatalogByGenre(String genre){
         Catalog catalog = new Catalog();
+        List<MovieDTO> movies = movieService.findMovieByGenre(genre);
+        List<SerieDTO> series = serieService.findSerieByGenre(genre);
         catalog.setGenre(genre);
         catalog.setMovies(movies);
+        catalog.setSeries(series);
+
         return catalog;
     }
 }

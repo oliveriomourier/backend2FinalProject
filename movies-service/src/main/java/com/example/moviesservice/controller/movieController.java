@@ -31,8 +31,8 @@ public class movieController {
     }
 
     @GetMapping("/findByGenre/{genre}")
-    public List<Movie> findByGenre(@PathVariable String genre,
-                                   @RequestParam (defaultValue = "false") Boolean throwError){
+    public List<Movie> findByGenre(@PathVariable String genre){
+        Boolean throwError = false;
         if(throwError){
             throw new RuntimeException();
         }

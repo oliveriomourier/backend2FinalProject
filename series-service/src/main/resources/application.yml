@@ -44,10 +44,10 @@ resilience4j:
     instances:
       serie:
         slidingWindowType: COUNT_BASED
-        slidingWindowSize: 5
+        slidingWindowSize: 3
         failureRateThreshold: 50
         waitDurationInOpenState: 15000
-        permittedNumberOfCallsInHalfOpenState: 3
+        permittedNumberOfCallsInHalfOpenState: 2
         registerHealthIndicator: true
         allowHealthIndicatorToFail: false
         automaticTransitionFromOpenToHalfOpenEnabled: true
